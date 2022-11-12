@@ -1,10 +1,9 @@
-import MostrarGifs from './components/MostrarGifs';
+import GetGifsObjetc from './components/GetGifsObjetc';
 
 function App() {
-
 	return (
 		<div>
-			<MostrarGifs/>
+			<GetGifsObjetc />
 		</div>
 	);
 }
