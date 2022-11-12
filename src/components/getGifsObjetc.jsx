@@ -13,16 +13,17 @@ const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
 function GetGifsObjetc({ keyword = 'panda' } = {}) {
 	const [figura, setFigura] = useState([]);
 	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
-
+return(
 	fetch(apiURL)
 		.then((response) => response.json())
 		.then((resp) => {
 			const { data = [] } = resp;
 			const obtenerGifs = getArray(data);
 			setFigura(obtenerGifs);
-		});
-	return <ListGifs listadeGifs={figura} />;
-}
+		})
+		)
+	}
+	<ListGifs listadeGifs={figura} />
 useEffect(() => {
 	GetGifsObjetc({ keyword: 'messi' });
 }, []);
