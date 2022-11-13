@@ -1,22 +1,22 @@
 import MostrarGifs from '../components/MostrarGifs';
 import { BrowserRouter, Routes, Route, useSearchParams, Navigate } from 'react-router-dom';
 
-function App() {
-	const query = useSearchParams();
-	const search = query.get('search');
+// import { useLocation } from 'react-router-dom';
 
-	const debouncedSearch = useDebounse(search, 300);
+function App() {
+	// const query = useSearchParams();
+	// const search = query.get('search');
+
+	// const debouncedSearch = useDebounse(search, 300);
 	return (
-		// <Search />
-		// <BrowserRouter>
-		<Header>
+		<BrowserRouter>
 			<Routes>
+				{/* <Search /> */}
 				{/* <Route path="/" element={<MostrarGifs />} /> */}
-				<Route path="/" element={<MostrarGifs key={debouncedSearch} keyword="messi" />} />
+				<Route path="/" element={<MostrarGifs  keyword="messi" />} />
 				<Route path="*" element={<Navigate to="/" />} />
 			</Routes>
-		</Header>
-		// </BrowserRouter>
+		</BrowserRouter>
 	);
 }
 

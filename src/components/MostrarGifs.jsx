@@ -10,27 +10,54 @@ function getArray(item) {
 	}));
 	return gifs;
 }
+
+async function fetchData(keyword){
+	const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
+	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
+	const response = await fetch(apiURL)
+	const responseJson = await response.json()
+	const { data = [] } = responseJson;
+	return getArray(data)
+}
+
+
 function MostrarGifs({ keyword }) {
 	const [figura, setFigura] = useState([]);
-	function getGifsObjetc({ keyword = 'panda' } = {}) {
-		const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
-		const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
-		return fetch(apiURL)
-			.then((response) => response.json())
-			.then((resp) => {
-				const { data = [] } = resp;
-				const obtenerGifs = getArray(data);
-				setFigura(obtenerGifs);
-			});
+	const [query, setQuery] = useState("")
+	const [isSubmit,setIsSubmit] = useState(false);
+
+	const handleQuery = (e)=>{
+		setQuery(e.target.value)
 	}
+	const handleSearch = (e)=>{
+		e.preventDefault()
+		setIsSubmit(true)
+	}
+	useEffect(()=>{
+		fetchData(keyword)
+			.then(data=>{
+				setFigura(data)
+			})
+	},[keyword])
 
 	useEffect(() => {
-		getGifsObjetc({ keyword });
-	}, []);
+		if(isSubmit){
+			fetchData(query)
+			.then(data=>{
+				setFigura(data)
+				setIsSubmit(false)
+			})
+		}
+		
+	}, [isSubmit]);
 
 	return (
 		<>
-			<Search />
+			<Search  
+				handleSearch={handleSearch}
+				handleQuery={handleQuery}
+				query={query}
+				/>
 			<ListGifs listadeGifs={figura} />
 		</>
 	);
