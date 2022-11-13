@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ListGifs from './ListGifs';
+import Search from './Search';
 
 function getArray(item) {
 	const gifs = item.map((figura) => ({
@@ -9,7 +10,7 @@ function getArray(item) {
 	}));
 	return gifs;
 }
-function MostrarGifs() {
+function MostrarGifs({ keyword }) {
 	const [figura, setFigura] = useState([]);
 	function getGifsObjetc({ keyword = 'panda' } = {}) {
 		const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
@@ -24,10 +25,15 @@ function MostrarGifs() {
 	}
 
 	useEffect(() => {
-		getGifsObjetc({ keyword: 'messi' });
+		getGifsObjetc({ keyword });
 	}, []);
 
-	return <ListGifs listadeGifs={figura} />;
+	return (
+		<>
+			<Search />
+			<ListGifs listadeGifs={figura} />
+		</>
+	);
 }
 
 export default MostrarGifs;
