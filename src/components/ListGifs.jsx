@@ -13,4 +13,3 @@ const ListGifs = ({ listadeGifs }) => {
 	);
 };
 export default ListGifs;
-//  No hemos podido validar a algunos/todos los pasajeros. Acuda al mostrador de visados/billetes de Ryanair para que comprueben su documentación antes de dirigirse a la puerta de embarque. Haz clic en “Ir al pago” para continuar con tu reserva. 

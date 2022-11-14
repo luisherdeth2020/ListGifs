@@ -1,4 +1,6 @@
+
 {
+  "homepage": ".",
   "name": "giphy2-0",
   "private": true,
   "version": "0.0.0",
