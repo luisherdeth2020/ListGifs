@@ -32,32 +32,28 @@ function MostrarGifs({ keyword }) {
 	// Busqueda
 	const handleSearch = (e) => {
 		e.preventDefault();
-		if (query === "") {
-			console.log(query);
-			document.getElementsByClassName('error__input').innerHTML = 'El campo no puede estar vacio.';
+		if (query.trim().length <= 0) {
+			document.getElementById('jose').style.borderColor = '#dc3545';
+
+			document.querySelector('.error__input').innerHTML = 'El campo no puede estar vacio';
 			setIsSubmit(false);
 		} else {
-			document.getElementsByClassName('error__input').innerHTML = 'El campo no puede estar vacio.';
+			document.getElementById('jose').style.borderColor = 'green';
+			document.getElementById('test').innerHTML = '';
 			setIsSubmit(true);
 		}
-		// if (e.preventDefault == '') {
-		// 	setIsSubmit(false);
-		// 	document.getElementsByClassName('.error__input').innerHTML = "El campo no puede estar vacio.";
-		// } else {
-		// 	document.getElementsByClassName('.error__input').innerHTML = 'El campo no puede estar vacio.';
-		// 	setIsSubmit(true);
-
-		// }
 	};
 	useEffect(() => {
-		fetchData(keyword).then((data) => {
+		fetchData(keyword)
+		.then((data) => {
 			setFigura(data);
 		});
-	}, [keyword]);
+	}, []);
 
 	useEffect(() => {
 		if (isSubmit) {
-			fetchData(query).then((data) => {
+			fetchData(query)
+			.then((data) => {
 				setFigura(data);
 				setIsSubmit(false);
 			});

@@ -8,6 +8,7 @@
 .search__input {
 	height: 23px;
 	border-radius: 5px;
+	border:2px solid hsl(45, 86%, 56%);;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
@@ -23,10 +24,4 @@
 	border: none;
 	background: none;
 }
-.error__input{
-	background-color: rgba(139, 115, 156, 0.475);
-	/* height: 20px; */
-	display: flex;
-	/* width: 30px; */
-	justify-content: center;
-}
+
