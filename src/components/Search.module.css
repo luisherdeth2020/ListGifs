@@ -1,6 +1,7 @@
-.search__container {
+.container {
 	display: flex;
 	justify-content: center;
+	margin: 1.5rem 0 3rem 0;
 }
 .search__box {
 	position: relative;
@@ -8,20 +9,18 @@
 .search__input {
 	height: 23px;
 	border-radius: 5px;
-	border:2px solid hsl(45, 86%, 56%);;
+	border: 2px solid hsl(45, 86%, 56%);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
-    padding: 5px 33px 5px 10px;
+	padding: 5px 33px 5px 10px;
 }
 .search__button {
 	position: absolute;
 	right: 0;
-	/* top:0; */
 	cursor: pointer;
 	height: 100%;
 	border: none;
 	background: none;
 }
-

@@ -13,7 +13,7 @@ function getArray(item) {
 
 async function fetchData(keyword) {
 	const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
-	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
+	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=12&offset=0&rating=g&lang=en`;
 	const response = await fetch(apiURL);
 	const responseJson = await response.json();
 	const { data = [] } = responseJson;
@@ -33,9 +33,9 @@ function MostrarGifs({ keyword }) {
 	const handleSearch = (e) => {
 		e.preventDefault();
 		if (query.trim().length <= 0) {
-			document.getElementById('jose').style.borderColor = '#dc3545';
+			document.getElementById('jose').style.borderColor = '1px solid #dc3545';
 
-			document.querySelector('.error__input').innerHTML = 'El campo no puede estar vacio';
+			document.querySelector('.error__input').innerHTML = 'El campo no puede estar vacío';
 			setIsSubmit(false);
 		} else {
 			document.getElementById('jose').style.borderColor = 'green';

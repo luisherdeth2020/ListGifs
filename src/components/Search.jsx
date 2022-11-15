@@ -5,7 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 function Search({ query, handleQuery, handleSearch }) {
 	return (
 		<>
-			<form className={styles.search__container} onSubmit={handleSearch}>
+			<form className={styles.container} onSubmit={handleSearch}>
 				<div className={styles.search__box}>
 					<input
 						className={styles.search__input} id="jose"

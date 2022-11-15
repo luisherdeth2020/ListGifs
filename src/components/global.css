@@ -7,14 +7,10 @@ body {
 .error__input {
 	display: flex;
 	position: absolute;
-	top: 50px;
+	top: 63px;
+	font-weight: 500;
 	color: #dc3545;
 	font-family: system-ui;
 	font-size: 0.9rem;
 	justify-content: center;
 }
-
-/* img {
-	min-width: '200px';
-	min-height: '460px';
-} */
