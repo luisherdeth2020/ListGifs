@@ -14,3 +14,7 @@ body {
 	font-size: 0.9rem;
 	justify-content: center;
 }
+h1{
+	text-align: center;
+	color: hsl(45, 79%, 50%);
+}

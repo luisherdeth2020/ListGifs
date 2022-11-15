@@ -1,7 +1,12 @@
 import MostrarGifs from '../components/MostrarGifs';
 
 function App() {
-	return <MostrarGifs keyword="messi" />;
+	return (
+		<>
+			<h1>GIFS ANIMADOS</h1>
+			<MostrarGifs keyword="messi" />;
+		</>
+	);
 }
 
 export default App;
