@@ -10,7 +10,6 @@ function getArray(item) {
 	}));
 	return gifs;
 }
-
 async function fetchData(keyword) {
 	const apiKey = `LMKcBVBub91y9rp048zM7xM9FkhdT8Zq`;
 	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=12&offset=0&rating=g&lang=en`;
