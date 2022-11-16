@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ListGifs from './ListGifs';
 import Search from './Search';
 
@@ -24,6 +24,8 @@ function MostrarGifs({ keyword }) {
 	const [query, setQuery] = useState('');
 	const [isSubmit, setIsSubmit] = useState(false);
 
+	const inputRef = useRef();
+	const inputText = useRef();
 	// Manipular consulta
 	const handleQuery = (e) => {
 		setQuery(e.target.value);
@@ -32,27 +34,24 @@ function MostrarGifs({ keyword }) {
 	const handleSearch = (e) => {
 		e.preventDefault();
 		if (query.trim().length <= 0) {
-			document.getElementById('jose').style.borderColor = '1px solid #dc3545';
-
-			document.querySelector('.error__input').innerHTML = '¡No puede estar vacío!😭';
+			inputRef.current.style.border = '1px solid #dc3545';
+			inputText.current.innerHTML = '¡No puede estar vacío!😭';
 			setIsSubmit(false);
 		} else {
-			document.getElementById('jose').style.borderColor = 'green';
-			document.getElementById('test').innerHTML = '';
+			inputRef.current.style.borderColor = 'green';
+			inputText.current.innerHTML = '';
 			setIsSubmit(true);
 		}
 	};
 	useEffect(() => {
-		fetchData(keyword)
-		.then((data) => {
+		fetchData(keyword).then((data) => {
 			setFigura(data);
 		});
 	}, []);
 
 	useEffect(() => {
 		if (isSubmit) {
-			fetchData(query)
-			.then((data) => {
+			fetchData(query).then((data) => {
 				setFigura(data);
 				setIsSubmit(false);
 			});
@@ -61,7 +60,13 @@ function MostrarGifs({ keyword }) {
 
 	return (
 		<>
-			<Search query={query} handleSearch={handleSearch} handleQuery={handleQuery} />
+			<Search
+				inputText={inputText}
+				inputRef={inputRef}
+				query={query}
+				handleSearch={handleSearch}
+				handleQuery={handleQuery}
+			/>
 			<ListGifs listadeGifs={figura} />
 		</>
 	);

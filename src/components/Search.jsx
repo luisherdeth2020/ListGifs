@@ -1,14 +1,16 @@
 import styles from './Search.module.css';
-import './global.css'
+import './global.css';
 import { FaSearch } from 'react-icons/fa';
 
-function Search({ query, handleQuery, handleSearch }) {
+function Search({ inputText,inputRef, query, handleQuery, handleSearch }) {
+
 	return (
 		<>
 			<form className={styles.container} onSubmit={handleSearch}>
 				<div className={styles.search__box}>
 					<input
-						className={styles.search__input} id="jose"
+						className={styles.search__input}
+						ref={inputRef}
 						type="text"
 						value={query}
 						autoFocus
@@ -20,7 +22,7 @@ function Search({ query, handleQuery, handleSearch }) {
 						<FaSearch size={20} />
 					</button>
 				</div>
-			<div id="test" className="error__input"></div>
+				<div ref={inputText} id="test" className="error__input"></div>
 			</form>
 		</>
 	);
