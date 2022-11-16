@@ -1,14 +1,10 @@
-import {useRef } from 'react';
 import styles from './ListGifs.module.css';
 
-const imageRef = useRef(null);
-// Share must be triggered by "user activation"
+
 const sharedOptions = async (shareData) => {
 	try {
 		await navigator.share({url:shareData});
-		// resultPara.textContent = 'MDN shared successfully';
 	} catch (err) {
-		// resultPara.textContent = `Error: ${err}`;
 	}
 };
 
