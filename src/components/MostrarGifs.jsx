@@ -35,7 +35,7 @@ function MostrarGifs({ keyword }) {
 		if (query.trim().length <= 0) {
 			document.getElementById('jose').style.borderColor = '1px solid #dc3545';
 
-			document.querySelector('.error__input').innerHTML = 'El campo no puede estar vacío';
+			document.querySelector('.error__input').innerHTML = '¡No puede estar vacío!😭';
 			setIsSubmit(false);
 		} else {
 			document.getElementById('jose').style.borderColor = 'green';
