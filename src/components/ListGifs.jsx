@@ -8,7 +8,7 @@ const ListGifs = ({ listadeGifs }) => {
 					<div key={item.id} className={styles.container__gifs}>
 						<img src={item.url} alt={item.title} />
 						<p>{item.title}</p>
-						<button className={styles.button} role="button"
+						<button className={styles.dora} role="button"
 							onClick={() =>
 								fetch(item.url)
 									.then(function (response) {
