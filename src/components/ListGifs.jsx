@@ -1,11 +1,9 @@
 import styles from './ListGifs.module.css';
 
-
 const sharedOptions = async (shareData) => {
 	try {
-		await navigator.share({url:shareData});
-	} catch (err) {
-	}
+		await navigator.share({ files: shareData });
+	} catch (err) {}
 };
 
 const ListGifs = ({ listadeGifs }) => {
@@ -16,7 +14,29 @@ const ListGifs = ({ listadeGifs }) => {
 					<div key={item.id} className={styles.container__gifs}>
 						<img src={item.url} alt={item.title} />
 						<p>{item.title}</p>
-						<button onClick={() => sharedOptions(item.url)} type="button">
+						{/* <button onClick={() => sharedOptions(item.url)} type="button"> */}
+						<button
+							onClick={() =>
+								fetch(item.url)
+									.then(function (response) {
+										return response.blob();
+									})
+									.then(function (blob) {
+										var file = new File([blob], 'picture.gif', { type: 'image/gif' });
+										var filesArray = [file];
+
+										if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+											navigator.share({
+												text: 'some_text',
+												files: filesArray,
+												title: 'some_title',
+												url: 'some_url',
+											});
+										}
+									})
+							}
+							type="button"
+						>
 							Compartir
 						</button>
 					</div>
