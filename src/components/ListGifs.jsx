@@ -1,11 +1,5 @@
 import styles from './ListGifs.module.css';
 
-const sharedOptions = async (shareData) => {
-	try {
-		await navigator.share({ files: shareData });
-	} catch (err) {}
-};
-
 const ListGifs = ({ listadeGifs }) => {
 	return (
 		<div className={styles.container}>
@@ -14,7 +8,6 @@ const ListGifs = ({ listadeGifs }) => {
 					<div key={item.id} className={styles.container__gifs}>
 						<img src={item.url} alt={item.title} />
 						<p>{item.title}</p>
-						{/* <button onClick={() => sharedOptions(item.url)} type="button"> */}
 						<button
 							onClick={() =>
 								fetch(item.url)
