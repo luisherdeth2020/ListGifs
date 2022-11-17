@@ -26,9 +26,10 @@ function MostrarGifs({ keyword }) {
 
 	const inputRef = useRef();
 	const inputText = useRef();
+	const limit = 12;
 	// Manipular consulta
 	const handleQuery = (e) => {
-		setQuery(e.target.value);
+		setQuery(e.target.value.slice(0, limit));
 	};
 	// Busqueda
 	const handleSearch = (e) => {
@@ -37,6 +38,14 @@ function MostrarGifs({ keyword }) {
 			inputRef.current.style.border = '1px solid #dc3545';
 			inputText.current.innerHTML = '¡No puede estar vacío!😭';
 			setIsSubmit(false);
+		} else if (query.length === limit) {
+			inputText.current.innerHTML = '¡Máximo de caracteres es 12!😥';
+			setIsSubmit(false);
+		} 
+		// ! PENDIENTE
+		else if (query === setFigura(figura)) {
+			inputText.current.innerHTML = 'No se encontro😥';
+			setIsSubmit(true);
 		} else {
 			inputRef.current.style.border = '1px solid hsl(45, 86%, 56%)';
 			inputText.current.innerHTML = '';
