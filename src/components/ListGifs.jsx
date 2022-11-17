@@ -5,6 +5,8 @@ const sharedOptions = async (shareData) => {
 	try {
 		await navigator.share({url:shareData});
 	} catch (err) {
+		console.error(err)
+		return;
 	}
 };
 
@@ -16,7 +18,7 @@ const ListGifs = ({ listadeGifs }) => {
 					<div key={item.id} className={styles.container__gifs}>
 						<img src={item.url} alt={item.title} />
 						<p>{item.title}</p>
-						<button onClick={() => sharedOptions(item.url)} type="button">
+						<button onClick={async() => await sharedOptions(item.url)} type="button">
 							Compartir
 						</button>
 					</div>
