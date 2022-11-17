@@ -27,10 +27,7 @@ const ListGifs = ({ listadeGifs }) => {
 
 										if (navigator.canShare && navigator.canShare({ files: filesArray })) {
 											navigator.share({
-												text: item.title,
 												files: filesArray,
-												title: item.title,
-												url: item.title,
 											});
 										}
 									})
