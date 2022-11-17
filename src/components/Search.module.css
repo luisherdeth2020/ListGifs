@@ -16,6 +16,7 @@
 	-o-border-radius: 5px;
 	padding: 5px 33px 5px 10px;
 }
+
 .search__button {
 	position: absolute;
 	right: 0;
@@ -23,4 +24,9 @@
 	height: 100%;
 	border: none;
 	background: none;
+	color:hsl(45, 86%, 56%);
+}
+input:focus{
+	border: 2px solid hsl(45, 86%, 56%);
+
 }

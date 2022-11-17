@@ -8,15 +8,15 @@ const ListGifs = ({ listadeGifs }) => {
 					<div key={item.id} className={styles.container__gifs}>
 						<img src={item.url} alt={item.title} />
 						<p>{item.title}</p>
-						<button
+						<button className={styles.button} role="button"
 							onClick={() =>
 								fetch(item.url)
 									.then(function (response) {
 										return response.blob();
 									})
 									.then(function (blob) {
-										var file = new File([blob], 'picture.gif', { type: 'image/gif' });
-										var filesArray = [file];
+										let file = new File([blob], 'picture.gif', { type: 'image/gif' });
+										let filesArray = [file];
 
 										if (navigator.canShare && navigator.canShare({ files: filesArray })) {
 											navigator.share({

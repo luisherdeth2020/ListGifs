@@ -2,6 +2,8 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	background:#fff;
+	font-family: CerebriSans-Bold, -apple-system, system-ui, Roboto, sans-serif;
 }
 
 .error__input {
@@ -16,5 +18,9 @@ body {
 }
 h1{
 	text-align: center;
-	color: hsl(45, 79%, 50%);
+	color: hsl(45, 100%, 53%);
+}
+input{
+	background:transparent;
+	outline:none;
 }

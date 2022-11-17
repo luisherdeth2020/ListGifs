@@ -38,7 +38,7 @@ function MostrarGifs({ keyword }) {
 			inputText.current.innerHTML = '¡No puede estar vacío!😭';
 			setIsSubmit(false);
 		} else {
-			inputRef.current.style.borderColor = 'green';
+			inputRef.current.style.border = '1px solid hsl(45, 86%, 56%)';
 			inputText.current.innerHTML = '';
 			setIsSubmit(true);
 		}
@@ -47,7 +47,7 @@ function MostrarGifs({ keyword }) {
 		fetchData(keyword).then((data) => {
 			setFigura(data);
 		});
-	}, []);
+	}, [keyword]);
 
 	useEffect(() => {
 		if (isSubmit) {
