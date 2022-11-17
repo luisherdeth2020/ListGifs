@@ -27,10 +27,10 @@ const ListGifs = ({ listadeGifs }) => {
 
 										if (navigator.canShare && navigator.canShare({ files: filesArray })) {
 											navigator.share({
-												text: 'some_text',
+												text: item.title,
 												files: filesArray,
-												title: 'some_title',
-												url: 'some_url',
+												title: item.title,
+												url: item.title,
 											});
 										}
 									})
