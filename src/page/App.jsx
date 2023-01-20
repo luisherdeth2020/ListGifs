@@ -4,7 +4,7 @@ function App() {
 	return (
 		<>
 			<h1>GIFS ANIMADOS</h1>
-			<MostrarGifs keyword="Picachu" />;
+			<MostrarGifs keyword="Pokemon" />;
 		</>
 	);
 }
